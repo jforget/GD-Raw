@@ -191,6 +191,11 @@ sub gdImageFilledEllipse (gdImagePtr $im, int32 $cx, int32 $cy, int32 $w, int32 
     # returns void
     is native(LIB) is export {*}
 
+sub gdImageEllipse (gdImagePtr $im, int32 $cx, int32 $cy, int32 $w, int32 $h,
+                                        int32 $color)
+    # returns void
+    is native(LIB) is export {*}
+
 sub gdImageCopyResized(gdImageStruct $dst, gdImageStruct $src,
         int32 $dstX, int32 $dstY,
         int32 $srcX, int32 $srcY,
@@ -298,6 +303,10 @@ sub gdImageColorAllocate(gdImagePtr $im, int32 $r, int32 $g, int32 $b)
     is native(LIB) is export {*}
 
 sub gdImageFilledRectangle(gdImagePtr $im, int32 $x1, int32 $y1, int32 $x2, int32 $y2, int32 $color)
+    #returns void
+    is native(LIB) is export {*}
+
+sub gdImageRectangle(gdImagePtr $im, int32 $x1, int32 $y1, int32 $x2, int32 $y2, int32 $color)
     #returns void
     is native(LIB) is export {*}
 
@@ -550,7 +559,7 @@ your missing and submit a pull request!
 
 Copyright 2013 - 2018 Dagur Valberg Johannsson
 
-Copyright 2024 Raku Community
+Copyright 2024, 2026 Raku Community
 
 This library is free software; you can redistribute it and/or modify it under the Artistic License 2.0.
 
