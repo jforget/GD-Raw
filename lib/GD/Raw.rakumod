@@ -550,6 +550,64 @@ origin as possible.
 LibGD is large and this module far from covers it all. Feel free to add anything
 your missing and submit a pull request!
 
+=head1 MEMORY MANAGEMENT
+
+When creating an in-memory image, some memory is allocated in GD. This
+memory is not automatically deallocated when the variable which refers
+to the image goes out of  scope. To counter this possible memory leak,
+the  simplest way  is to  use the  C<LEAVE> phaser  and call  function
+C<gdImageDestroy> like this
+
+=begin code :lang<raku>
+
+my $img = gdImageCreateFromPng($fh);
+LEAVE gdImageDestroy($_) with $img;
+
+=end code
+
+If a  program creates several images,  there will be a  problem if the
+program reuses the C<$img> variable. In  this case, you cannot use the
+C<LEAVE> phaser,  you must call C<gdImageDestroy>  before creating the
+second image (and the third, and...)
+
+=begin code :lang<raku>
+
+my $img = gdImageCreateFromPng($fh1);
+[...]
+gdImageDestroy($img);
+$img = gdImageCreateFromPng($fh2);
+[...]
+gdImageDestroy($img);
+$img = gdImageCreateFromPng($fh3);
+[...]
+gdImageDestroy($img);
+
+=end code
+
+Or  a  simpler  solution  is  to  use  different  variables  C<$img1>,
+C<$img2>, C<$img3> and so on,  and calling C<gdImageDestroy> each time
+with the C<LEAVE> phaser.
+
+=begin code :lang<raku>
+
+my $img1 = gdImageCreateFromPng($fh1);
+LEAVE gdImageDestroy($_) with $img1;
+[...]
+my $img2 = gdImageCreateFromPng($fh2);
+LEAVE gdImageDestroy($_) with $img2;
+[...]
+my $img3 = gdImageCreateFromPng($fh3);
+LEAVE gdImageDestroy($_) with $img3;
+[...]
+
+=end code
+
+=head1 SEE ALSO
+
+Raku Module C<GD>: L<https://github.com/raku-community-modules/GD>
+
+C library: L<https://libgd.github.io/>
+
 =head1 AUTHORS
 
 =item Dagur Valberg Johannsson
