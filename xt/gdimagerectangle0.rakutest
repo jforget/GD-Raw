@@ -1,0 +1,36 @@
+# -*- encoding: utf-8; indent-tabs-mode: nil -*-
+use Test;
+use GD::Raw;
+
+use lib $*PROGRAM.parent;
+use gdtest;
+
+plan 1;
+
+my $im = gdImageCreate(200, 50) or die;
+LEAVE gdImageDestroy($im) if $im;
+
+my $white = gdImageColorAllocate($im, 0xff, 0xff, 0xff);
+my $black = gdImageColorAllocate($im,   0,   0,   0);
+my $red   = gdImageColorAllocate($im, 255,   0,   0);
+my $blue  = gdImageColorAllocate($im,   0,   0, 255);
+
+gdImageLine($im, 0, 10, 190, 30, $black);
+gdImageFilledEllipse(  $im, 10,  20,  20, 20, $white);
+gdImageEllipse(        $im, 10,  20,  20, 20, $blue);
+gdImageFilledRectangle($im, 30,  10,  50, 30, $white);
+gdImageRectangle(      $im, 30,  10,  50, 30, $blue);
+gdImageFilledEllipse(  $im, 70,  20,  20, 20, $red);
+gdImageFilledRectangle($im, 90,  10, 110, 30, $red);
+gdImageSetThickness($im, 3);
+gdImageFilledEllipse(  $im, 130,  20,  20, 20, $white);
+gdImageEllipse(        $im, 130,  20,  20, 20, $blue);
+gdImageFilledRectangle($im, 150,  10, 170, 30, $white);
+gdImageRectangle(      $im, 150,  10, 170, 30, $blue);
+
+ok gdAssertImageEqualsToFile
+  $*PROGRAM.sibling("ported-gdimagerectangle/gdimagerectangle0.png"),
+  $im
+;
+
+# vim: expandtab shiftwidth=4

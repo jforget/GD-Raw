@@ -191,6 +191,11 @@ sub gdImageFilledEllipse (gdImagePtr $im, int32 $cx, int32 $cy, int32 $w, int32 
     # returns void
     is native(LIB) is export {*}
 
+sub gdImageEllipse (gdImagePtr $im, int32 $cx, int32 $cy, int32 $w, int32 $h,
+                                        int32 $color)
+    # returns void
+    is native(LIB) is export {*}
+
 sub gdImageCopyResized(gdImageStruct $dst, gdImageStruct $src,
         int32 $dstX, int32 $dstY,
         int32 $srcX, int32 $srcY,
@@ -298,6 +303,10 @@ sub gdImageColorAllocate(gdImagePtr $im, int32 $r, int32 $g, int32 $b)
     is native(LIB) is export {*}
 
 sub gdImageFilledRectangle(gdImagePtr $im, int32 $x1, int32 $y1, int32 $x2, int32 $y2, int32 $color)
+    #returns void
+    is native(LIB) is export {*}
+
+sub gdImageRectangle(gdImagePtr $im, int32 $x1, int32 $y1, int32 $x2, int32 $y2, int32 $color)
     #returns void
     is native(LIB) is export {*}
 
@@ -541,6 +550,64 @@ origin as possible.
 LibGD is large and this module far from covers it all. Feel free to add anything
 your missing and submit a pull request!
 
+=head1 MEMORY MANAGEMENT
+
+When creating an in-memory image, some memory is allocated in GD. This
+memory is not automatically deallocated when the variable which refers
+to the image goes out of  scope. To counter this possible memory leak,
+the  simplest way  is to  use the  C<LEAVE> phaser  and call  function
+C<gdImageDestroy> like this
+
+=begin code :lang<raku>
+
+my $img = gdImageCreateFromPng($fh);
+LEAVE gdImageDestroy($_) with $img;
+
+=end code
+
+If a  program creates several images,  there will be a  problem if the
+program reuses the C<$img> variable. In  this case, you cannot use the
+C<LEAVE> phaser,  you must call C<gdImageDestroy>  before creating the
+second image (and the third, and...)
+
+=begin code :lang<raku>
+
+my $img = gdImageCreateFromPng($fh1);
+[...]
+gdImageDestroy($img);
+$img = gdImageCreateFromPng($fh2);
+[...]
+gdImageDestroy($img);
+$img = gdImageCreateFromPng($fh3);
+[...]
+gdImageDestroy($img);
+
+=end code
+
+Or  a  simpler  solution  is  to  use  different  variables  C<$img1>,
+C<$img2>, C<$img3> and so on,  and calling C<gdImageDestroy> each time
+with the C<LEAVE> phaser.
+
+=begin code :lang<raku>
+
+my $img1 = gdImageCreateFromPng($fh1);
+LEAVE gdImageDestroy($_) with $img1;
+[...]
+my $img2 = gdImageCreateFromPng($fh2);
+LEAVE gdImageDestroy($_) with $img2;
+[...]
+my $img3 = gdImageCreateFromPng($fh3);
+LEAVE gdImageDestroy($_) with $img3;
+[...]
+
+=end code
+
+=head1 SEE ALSO
+
+Raku Module C<GD>: L<https://github.com/raku-community-modules/GD>
+
+C library: L<https://libgd.github.io/>
+
 =head1 AUTHORS
 
 =item Dagur Valberg Johannsson
@@ -550,7 +617,7 @@ your missing and submit a pull request!
 
 Copyright 2013 - 2018 Dagur Valberg Johannsson
 
-Copyright 2024 Raku Community
+Copyright 2024, 2026 Raku Community
 
 This library is free software; you can redistribute it and/or modify it under the Artistic License 2.0.
 

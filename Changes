@@ -2,6 +2,9 @@ Revision history for GD::Raw
 
 {{$NEXT}}
 
+0.5  2026-xx
+    - Add functions `gdImageEllipse` and `gdImageRectangle` to draw outline ellipses and outline rectangles.
+
 0.4  2024-10-23T11:02:05+02:00
     - Add some in-place filters: 0racle++
 
