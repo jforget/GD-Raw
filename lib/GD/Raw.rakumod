@@ -181,6 +181,10 @@ sub gdImageGif(gdImageStruct $im, OpaquePointer $f)
 sub gdImageBmp(gdImageStruct $im, OpaquePointer $f, int32)
     is native(LIB) is export { ... }
 
+sub gdImagePngPtr(gdImageStruct $image, int32 $size is rw)
+    returns OpaquePointer
+    is native(LIB) is export { ... }
+
 sub gdImageArc (gdImagePtr $im, int32 $cx, int32 $cy, int32 $w, int32 $h,
     int32 $s, int32 $e, int32 $color)
     # returns void
