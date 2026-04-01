@@ -11,13 +11,18 @@
   "description": "Low level language bindings to GD Graphics Library",
   "license": "Artistic-2.0",
   "name": "GD::Raw",
-  "perl": "6.*",
   "provides": {
     "GD::Raw": "lib/GD/Raw.rakumod"
   },
+  "raku": "6.*",
   "resources": [
   ],
   "source-url": "https://github.com/raku-community-modules/GD-Raw.git",
+  "support": {
+    "bugtracker": "https://github.com/raku-community-modules/GD-Raw/issues",
+    "email": "community@raku.org",
+    "source": "https://github.com/raku-community-modules/GD-Raw.git"
+  },
   "tags": [
     "GD",
     "IMAGE"
