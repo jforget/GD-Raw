@@ -672,7 +672,7 @@ L<C<gdImageFilledRectangle>|https://libgd.github.io/manuals/2.3.3/files/gd-c.htm
 
 =head3 Cloning and Copying
 
-L<C<gdImageCopyResized|>https://libgd.github.io/manuals/2.3.3/files/gd-c.html#gdImageCopyResized>
+L<C<gdImageCopyResized>|https://libgd.github.io/manuals/2.3.3/files/gd-c.html#gdImageCopyResized>
 
 L<C<gdImageCopyResampled>|https://libgd.github.io/manuals/2.3.3/files/gd-c.html#gdImageCopyResampled>
 
@@ -701,6 +701,10 @@ L<C<gdTrueColorGetRed>|https://libgd.github.io/manuals/2.3.3/files/gd-h.html#gdT
 L<C<gdTrueColorGetGreen>|https://libgd.github.io/manuals/2.3.3/files/gd-h.html#gdTrueColorGetGreen>
 
 L<C<gdTrueColorGetBlue>|https://libgd.github.io/manuals/2.3.3/files/gd-h.html#gdTrueColorGetBlue>
+
+=head3 Color Composition
+
+L<C<gdTrueColorAlpha>|https://libgd.github.io/manuals/2.3.3/files/gd-h.html#gdTrueColorAlpha>
 
 =head3 Accessor Macros
 
@@ -771,6 +775,14 @@ L<C<gdImageMeanRemoval>|https://libgd.github.io/manuals/2.3.3/files/gd_filter-c.
 L<C<gdImageSmooth>|https://libgd.github.io/manuals/2.3.3/files/gd_filter-c.html#gdImageSmooth>
 
 L<C<gdImageCopyGaussianBlurred>|https://libgd.github.io/manuals/2.3.3/files/gd_filter-c.html#gdImageCopyGaussianBlurred>
+
+=head2 Additional Functions
+
+C<fopen> file management for graphic files
+
+C<fclose> file management for graphic files
+
+C<gdImageCreatePalette> is an alias of C<gdImageCreate>.
 
 =head1 MEMORY MANAGEMENT
 
