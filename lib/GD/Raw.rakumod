@@ -586,6 +586,192 @@ origin as possible.
 LibGD is large and this module far from covers it all. Feel free to add anything
 your missing and submit a pull request!
 
+=head1 FUNCTIONS PORTED TO RAKU
+
+Not all C<libgd> functions are ported to Raku module C<GD::Raw>. Here is
+the list of these functions, in the same order as the
+L<libgd 2.3.3 documentation|https://libgd.github.io/manuals/2.3.3/files/preamble-txt.html>
+
+=head2 Image Formats
+
+L<C<gdImageBmpPtr>|https://libgd.github.io/manuals/2.3.3/files/gd_bmp-c.html#gdImageBmpPtr>
+
+L<C<gdImageBmp>|https://libgd.github.io/manuals/2.3.3/files/gd_bmp-c.html#gdImageBmp>
+
+L<C<gdImageCreateFromBmp>|https://libgd.github.io/manuals/2.3.3/files/gd_bmp-c.html#gdImageCreateFromBmp>
+
+L<C<gdImageCreateFromGif>|https://libgd.github.io/manuals/2.3.3/files/gd_gif_in-c.html#gdImageCreateFromGif>
+
+L<C<gdImageGdPtr>|https://libgd.github.io/manuals/2.3.3/files/gd_gd-c.html#gdImageGdPtr>
+
+L<C<gdImageGifPtr>|https://libgd.github.io/manuals/2.3.3/files/gd_gif_out-c.html#gdImageGifPtr>
+
+L<C<gdImageGif>|https://libgd.github.io/manuals/2.3.3/files/gd_gif_out-c.html#gdImageGif>
+
+L<C<gdImageJpeg>|https://libgd.github.io/manuals/2.3.3/files/gd_jpeg-c.html#gdImageJpeg>
+
+L<C<gdImageJpegPtr>|https://libgd.github.io/manuals/2.3.3/files/gd_jpeg-c.html#gdImageJpegPtr>
+
+L<C<gdImageCreateFromJpeg>|https://libgd.github.io/manuals/2.3.3/files/gd_jpeg-c.html#gdImageCreateFromJpeg>
+
+L<C<gdImageCreateFromPng>|https://libgd.github.io/manuals/2.3.3/files/gd_png-c.html#gdImageCreateFromPng>
+
+L<C<gdImagePng>|https://libgd.github.io/manuals/2.3.3/files/gd_png-c.html#gdImagePng>
+
+L<C<gdImagePngPtr>|https://libgd.github.io/manuals/2.3.3/files/gd_png-c.html#gdImagePngPtr>
+
+L<C<gdImagePngPtrEx>|https://libgd.github.io/manuals/2.3.3/files/gd_png-c.html#gdImagePngPtrEx>
+
+L<C<gdImageTiffPtr>|https://libgd.github.io/manuals/2.3.3/files/gd_tiff-c.html#gdImageTiffPtr>
+
+L<C<gdImageWebpPtr>|https://libgd.github.io/manuals/2.3.3/files/gd_webp-c.html#gdImageWebpPtr>
+
+L<C<gdImageWepbPtrEx>|https://libgd.github.io/manuals/2.3.3/files/gd_webp-c.html#gdImageWebpPtr>
+
+=head2 C<gd.c>
+
+=head3 Creation and Destruction
+
+L<C<gdImageCreate>|https://libgd.github.io/manuals/2.3.3/files/gd-c.html#gdImageCreate>
+
+L<C<gdImageCreateTrueColor>|https://libgd.github.io/manuals/2.3.3/files/gd-c.html#gdImageCreateTrueColor>
+
+L<C<gdImageDestroy>|https://libgd.github.io/manuals/2.3.3/files/gd-c.html#gdImageDestroy>
+
+=head3 Color
+
+L<C<gdImageColorExactAlpha>|https://libgd.github.io/manuals/2.3.3/files/gd-c.html#gdImageColorExactAlpha>
+
+L<C<gdImageColorAllocate>|https://libgd.github.io/manuals/2.3.3/files/gd-c.html#gdImageColorAllocate>
+
+L<C<gdImageColorResolve>|https://libgd.github.io/manuals/2.3.3/files/gd-c.html#gdImageColorResolve>
+
+L<C<gdImageColorResolveAlpha>|https://libgd.github.io/manuals/2.3.3/files/gd-c.html#gdImageColorResolveAlpha>
+
+=head3 Pixels
+
+L<C<gdImageSetPixel>|https://libgd.github.io/manuals/2.3.3/files/gd-c.html#gdImageSetPixel>
+
+L<C<gdImageGetPixel>|https://libgd.github.io/manuals/2.3.3/files/gd-c.html#gdImageGetPixel>
+
+L<C<gdImageGetTrueColorPixel>|https://libgd.github.io/manuals/2.3.3/files/gd-c.html#gdImageGetTrueColorPixel>
+
+=head3 Primitives
+
+L<C<gdImageLine>|https://libgd.github.io/manuals/2.3.3/files/gd-c.html#gdImageLine>
+
+L<C<gdImageArc>|https://libgd.github.io/manuals/2.3.3/files/gd-c.html#gdImageArc>
+
+L<C<gdImageEllipse>|https://libgd.github.io/manuals/2.3.3/files/gd-c.html#gdImageEllipse>
+
+L<C<gdImageFilledEllipse>|https://libgd.github.io/manuals/2.3.3/files/gd-c.html#gdImageFilledEllipse>
+
+L<C<gdImageRectangle>|https://libgd.github.io/manuals/2.3.3/files/gd-c.html#gdImageRectangle>
+
+L<C<gdImageFilledRectangle>|https://libgd.github.io/manuals/2.3.3/files/gd-c.html#gdImageFilledRectangle>
+
+=head3 Cloning and Copying
+
+L<C<gdImageCopyResized|>https://libgd.github.io/manuals/2.3.3/files/gd-c.html#gdImageCopyResized>
+
+L<C<gdImageCopyResampled>|https://libgd.github.io/manuals/2.3.3/files/gd-c.html#gdImageCopyResampled>
+
+=head3 Polygons
+
+L<C<gdImagePolygon>|https://libgd.github.io/manuals/2.3.3/files/gd-c.html#gdImagePolygon>
+
+L<C<gdImageOpenPolygon>|https://libgd.github.io/manuals/2.3.3/files/gd-c.html#gdImageOpenPolygon>
+
+L<C<gdImageFilledPolygon>|https://libgd.github.io/manuals/2.3.3/files/gd-c.html#gdImageFilledPolygon>
+
+=head3 Other
+
+L<C<gdImageSetThickness>|https://libgd.github.io/manuals/2.3.3/files/gd-c.html#gdImageSetThickness>
+
+L<C<gdImageSetAntiAliased>|https://libgd.github.io/manuals/2.3.3/files/gd-c.html#gdImageSetAntiAliased>
+
+=head2 C<gd.h>
+
+=head3 Colour Decomposition
+
+L<C<gdTrueColorGetAlpha>|https://libgd.github.io/manuals/2.3.3/files/gd-h.html#gdTrueColorGetAlpha>
+
+L<C<gdTrueColorGetRed>|https://libgd.github.io/manuals/2.3.3/files/gd-h.html#gdTrueColorGetRed>
+
+L<C<gdTrueColorGetGreen>|https://libgd.github.io/manuals/2.3.3/files/gd-h.html#gdTrueColorGetGreen>
+
+L<C<gdTrueColorGetBlue>|https://libgd.github.io/manuals/2.3.3/files/gd-h.html#gdTrueColorGetBlue>
+
+=head3 Accessor Macros
+
+L<C<gdImageSX>|https://libgd.github.io/manuals/2.3.3/files/gd-h.html#gdImageSX>
+
+L<C<gdImageSY>|https://libgd.github.io/manuals/2.3.3/files/gd-h.html#gdImageSY>
+
+L<C<gdImageColorsTotal>|https://libgd.github.io/manuals/2.3.3/files/gd-h.html#gdImageColorsTotal>
+
+L<C<gdImageRed>|https://libgd.github.io/manuals/2.3.3/files/gd-h.html#gdImageRed
+
+L<C<gdImageGreen>|https://libgd.github.io/manuals/2.3.3/files/gd-h.html#gdImageGreen>
+
+L<C<gdImageBlue>|https://libgd.github.io/manuals/2.3.3/files/gd-h.html#gdImageBlue>
+
+L<C<gdImageAlpha>|https://libgd.github.io/manuals/2.3.3/files/gd-h.html#gdImageAlpha>
+
+=head2 C<gd_interpolation.c>
+
+L<C<gdImageScale>|https://libgd.github.io/manuals/2.3.3/files/gd_interpolation-c.html#gdImageScale>
+
+L<C<gdImageRotateInterpolated>|https://libgd.github.io/manuals/2.3.3/files/gd_interpolation-c.html#gdImageRotateInterpolated>
+
+L<C<gdImageSetInterpolationMethod>|https://libgd.github.io/manuals/2.3.3/files/gd_interpolation-c.html#gdImageSetInterpolationMethod>
+
+=head2 C<gd_version.c>
+
+L<C<gdMajorVersion>|https://libgd.github.io/manuals/2.3.3/files/gd_version-c.html#gdMajorVersion>
+
+L<C<gdMinorVersion>|https://libgd.github.io/manuals/2.3.3/files/gd_version-c.html#gdMinorVersion>
+
+L<C<gdReleaseVersion>|https://libgd.github.io/manuals/2.3.3/files/gd_version-c.html#gdReleaseVersion>
+
+L<C<gdExtraVersion>|https://libgd.github.io/manuals/2.3.3/files/gd_version-c.html#gdExtraVersion>
+
+L<C<gdVersionString>|https://libgd.github.io/manuals/2.3.3/files/gd_version-c.html#gdVersionString>
+
+=head2 gdFree
+
+L<C<gdFree>|https://libgd.github.io/manuals/2.3.3/files/gdhelpers-c.html>
+
+=head2 Image Filters
+
+L<C<gdImageScatter>|https://libgd.github.io/manuals/2.3.3/files/gd_filter-c.html#gdImageScatter>
+
+L<C<gdImagePixelate>|https://libgd.github.io/manuals/2.3.3/files/gd_filter-c.html#gdImagePixelate>
+
+L<C<gdImageNegate>|https://libgd.github.io/manuals/2.3.3/files/gd_filter-c.html#gdImageNegate>
+
+L<C<gdImageGrayScale>|https://libgd.github.io/manuals/2.3.3/files/gd_filter-c.html#gdImageGrayScale>
+
+L<C<gdImageBrightness>|https://libgd.github.io/manuals/2.3.3/files/gd_filter-c.html#gdImageBrightness>
+
+L<C<gdImageContrast>|https://libgd.github.io/manuals/2.3.3/files/gd_filter-c.html#gdImageContrast>
+
+L<C<gdImageColor>|https://libgd.github.io/manuals/2.3.3/files/gd_filter-c.html#gdImageColor>
+
+L<C<gdImageSelectiveBlur>|https://libgd.github.io/manuals/2.3.3/files/gd_filter-c.html#gdImageSelectiveBlur>
+
+L<C<gdImageEdgeDetectQuick>|https://libgd.github.io/manuals/2.3.3/files/gd_filter-c.html#gdImageEdgeDetectQuick>
+
+L<C<gdImageGaussianBlur>|https://libgd.github.io/manuals/2.3.3/files/gd_filter-c.html#gdImageGaussianBlur>
+
+L<C<gdImageEmboss>|https://libgd.github.io/manuals/2.3.3/files/gd_filter-c.html#gdImageEmboss>
+
+L<C<gdImageMeanRemoval>|https://libgd.github.io/manuals/2.3.3/files/gd_filter-c.html#gdImageMeanRemoval>
+
+L<C<gdImageSmooth>|https://libgd.github.io/manuals/2.3.3/files/gd_filter-c.html#gdImageSmooth>
+
+L<C<gdImageCopyGaussianBlurred>|https://libgd.github.io/manuals/2.3.3/files/gd_filter-c.html#gdImageCopyGaussianBlurred>
+
 =head1 MEMORY MANAGEMENT
 
 When creating an in-memory image, some memory is allocated in GD. This
