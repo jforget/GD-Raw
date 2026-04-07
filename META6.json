@@ -7,6 +7,7 @@
   "build-depends": [
   ],
   "depends": [
+    "NativeHelpers::Blob"
   ],
   "description": "Low level language bindings to GD Graphics Library",
   "license": "Artistic-2.0",
