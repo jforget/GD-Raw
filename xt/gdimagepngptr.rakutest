@@ -84,7 +84,6 @@ my $test = qq :to/EOF/;
 </body>
 </html>
 EOF
-gdFree($ptr);
 my $ref = $*PROGRAM.sibling("ported-gdimagepngptr/gd-image-xxx-ptr.html").IO.slurp;
 ok $test eq $ref;
 
