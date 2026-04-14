@@ -108,6 +108,8 @@ has int32 ($.alpha0, $.alpha1, $.alpha2, $.alpha3, $.alpha4, $.alpha5, $.alpha6,
 }
 class gdImagePtr is repr('CStruct') is gdImageStruct { }
 
+constant gdStyled      is export = -2;
+constant gdTransparent is export = -6;
 constant gdAntiAliased is export = -7;
 
 sub gdImageSX($img) is export {
@@ -301,6 +303,10 @@ sub gdImageGrayScale(gdImagePtr $src)
 
 sub gdImageNegate(gdImagePtr $src)
     returns int32
+    is native(LIB) is export {*}
+
+sub gdImageSetStyle(gdImagePtr $im, CArray[int32], int32 $no-of-pixels)
+    #returns void
     is native(LIB) is export {*}
 
 sub gdImageSetThickness(gdImagePtr $im, int32 $thickness)
@@ -685,6 +691,8 @@ L<C<gdImageOpenPolygon>|https://libgd.github.io/manuals/2.3.3/files/gd-c.html#gd
 L<C<gdImageFilledPolygon>|https://libgd.github.io/manuals/2.3.3/files/gd-c.html#gdImageFilledPolygon>
 
 =head3 Other
+
+L<C<gdImageSetStyle>|https://libgd.github.io/manuals/2.3.3/files/gd-c.html#gdImageSetStyle>
 
 L<C<gdImageSetThickness>|https://libgd.github.io/manuals/2.3.3/files/gd-c.html#gdImageSetThickness>
 
