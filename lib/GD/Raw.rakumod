@@ -877,4 +877,6 @@ This library is free software; you can redistribute it and/or modify it under th
 
 =end pod
 
+# For Emacs users: place the cursor after the closing parens and type C-x C-e
+# (setq-local tab-width 4)
 # vim: expandtab shiftwidth=4
