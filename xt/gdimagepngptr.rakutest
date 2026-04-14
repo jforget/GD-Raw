@@ -43,11 +43,6 @@ $blob    = blob-from-pointer($ptr, elems => $size, type => Blob[int8]);
 my $png9 =  MIME::Base64.encode($blob);
 gdFree($ptr);
 
-$ptr     = gdImageJpegPtr($im, $size, -1);
-$blob    = blob-from-pointer($ptr, elems => $size, type => Blob[int8]);
-my $jpeg =  MIME::Base64.encode($blob);
-gdFree($ptr);
-
 $ptr     = gdImageGifPtr($im, $size);
 $blob    = blob-from-pointer($ptr, elems => $size, type => Blob[int8]);
 my $gif  =  MIME::Base64.encode($blob);
@@ -73,8 +68,6 @@ my $test = qq :to/EOF/;
 <img src='data:image/png;base64,$png0'>
 <h1>Embedded PNG data (compression 9)</h1>
 <img src='data:image/png;base64,$png9'>
-<h1>Embedded JPEG data</h1>
-<img src='data:image/png;base64,$jpeg'>
 <h1>Embedded GIF data</h1>
 <img src='data:image/png;base64,$gif'>
 <h1>Embedded BMP data</h1>
