@@ -92,4 +92,6 @@ skip-rest "too old libgd" if $major == 2 and $minor < 2;
 do_test(300, 300, 600, 600);
 #do_test(3200, 2133, 640, 427); # Skipped. Takes forever.
 
+# For Emacs users: place the cursor after the closing parens and type C-x C-e
+# (setq-local tab-width 4)
 # vim: expandtab shiftwidth=4
