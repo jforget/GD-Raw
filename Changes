@@ -2,10 +2,11 @@ Revision history for GD::Raw
 
 {{$NEXT}}
 
-0.6  2026-04-xx
+0.6  2026-04-23T21:06:07+02:00
     - Add function `gdImagePngPtr` to load PNG data into a blob instead of into a file
     - Add a few other functions `gdImageXxxPtr` for other formats
     - Add the `gdImageSetStyle` function to improve the drawing of lines
+    - Provided by Jean Forget++
 
 0.5  2026-03-31T19:55:11+02:00
     - Add functions `gdImageEllipse` and `gdImageRectangle` to draw outline

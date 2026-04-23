@@ -25,6 +25,213 @@ DESCRIPTION
 
 LibGD is large and this module far from covers it all. Feel free to add anything your missing and submit a pull request!
 
+FUNCTIONS PORTED TO RAKU
+========================
+
+Not all `libgd` functions are ported to Raku module `GD::Raw`. Here is the list of these functions, in the same order as the [libgd 2.3.3 documentation](https://libgd.github.io/manuals/2.3.3/files/preamble-txt.html)
+
+Image Formats
+-------------
+
+[`gdImageBmpPtr`](https://libgd.github.io/manuals/2.3.3/files/gd_bmp-c.html#gdImageBmpPtr)
+
+[`gdImageBmp`](https://libgd.github.io/manuals/2.3.3/files/gd_bmp-c.html#gdImageBmp)
+
+[`gdImageCreateFromBmp`](https://libgd.github.io/manuals/2.3.3/files/gd_bmp-c.html#gdImageCreateFromBmp)
+
+[`gdImageCreateFromGif`](https://libgd.github.io/manuals/2.3.3/files/gd_gif_in-c.html#gdImageCreateFromGif)
+
+[`gdImageGdPtr`](https://libgd.github.io/manuals/2.3.3/files/gd_gd-c.html#gdImageGdPtr)
+
+[`gdImageGifPtr`](https://libgd.github.io/manuals/2.3.3/files/gd_gif_out-c.html#gdImageGifPtr)
+
+[`gdImageGif`](https://libgd.github.io/manuals/2.3.3/files/gd_gif_out-c.html#gdImageGif)
+
+[`gdImageJpeg`](https://libgd.github.io/manuals/2.3.3/files/gd_jpeg-c.html#gdImageJpeg)
+
+[`gdImageJpegPtr`](https://libgd.github.io/manuals/2.3.3/files/gd_jpeg-c.html#gdImageJpegPtr)
+
+[`gdImageCreateFromJpeg`](https://libgd.github.io/manuals/2.3.3/files/gd_jpeg-c.html#gdImageCreateFromJpeg)
+
+[`gdImageCreateFromPng`](https://libgd.github.io/manuals/2.3.3/files/gd_png-c.html#gdImageCreateFromPng)
+
+[`gdImagePng`](https://libgd.github.io/manuals/2.3.3/files/gd_png-c.html#gdImagePng)
+
+[`gdImagePngPtr`](https://libgd.github.io/manuals/2.3.3/files/gd_png-c.html#gdImagePngPtr)
+
+[`gdImagePngPtrEx`](https://libgd.github.io/manuals/2.3.3/files/gd_png-c.html#gdImagePngPtrEx)
+
+[`gdImageTiffPtr`](https://libgd.github.io/manuals/2.3.3/files/gd_tiff-c.html#gdImageTiffPtr)
+
+[`gdImageWebpPtr`](https://libgd.github.io/manuals/2.3.3/files/gd_webp-c.html#gdImageWebpPtr)
+
+[`gdImageWepbPtrEx`](https://libgd.github.io/manuals/2.3.3/files/gd_webp-c.html#gdImageWebpPtr)
+
+`gd.c`
+------
+
+### Creation and Destruction
+
+[`gdImageCreate`](https://libgd.github.io/manuals/2.3.3/files/gd-c.html#gdImageCreate)
+
+[`gdImageCreateTrueColor`](https://libgd.github.io/manuals/2.3.3/files/gd-c.html#gdImageCreateTrueColor)
+
+[`gdImageDestroy`](https://libgd.github.io/manuals/2.3.3/files/gd-c.html#gdImageDestroy)
+
+### Color
+
+[`gdImageColorExactAlpha`](https://libgd.github.io/manuals/2.3.3/files/gd-c.html#gdImageColorExactAlpha)
+
+[`gdImageColorAllocate`](https://libgd.github.io/manuals/2.3.3/files/gd-c.html#gdImageColorAllocate)
+
+[`gdImageColorResolve`](https://libgd.github.io/manuals/2.3.3/files/gd-c.html#gdImageColorResolve)
+
+[`gdImageColorResolveAlpha`](https://libgd.github.io/manuals/2.3.3/files/gd-c.html#gdImageColorResolveAlpha)
+
+### Pixels
+
+[`gdImageSetPixel`](https://libgd.github.io/manuals/2.3.3/files/gd-c.html#gdImageSetPixel)
+
+[`gdImageGetPixel`](https://libgd.github.io/manuals/2.3.3/files/gd-c.html#gdImageGetPixel)
+
+[`gdImageGetTrueColorPixel`](https://libgd.github.io/manuals/2.3.3/files/gd-c.html#gdImageGetTrueColorPixel)
+
+### Primitives
+
+[`gdImageLine`](https://libgd.github.io/manuals/2.3.3/files/gd-c.html#gdImageLine)
+
+[`gdImageArc`](https://libgd.github.io/manuals/2.3.3/files/gd-c.html#gdImageArc)
+
+[`gdImageEllipse`](https://libgd.github.io/manuals/2.3.3/files/gd-c.html#gdImageEllipse)
+
+[`gdImageFilledEllipse`](https://libgd.github.io/manuals/2.3.3/files/gd-c.html#gdImageFilledEllipse)
+
+[`gdImageRectangle`](https://libgd.github.io/manuals/2.3.3/files/gd-c.html#gdImageRectangle)
+
+[`gdImageFilledRectangle`](https://libgd.github.io/manuals/2.3.3/files/gd-c.html#gdImageFilledRectangle)
+
+### Cloning and Copying
+
+[`gdImageCopyResized`](https://libgd.github.io/manuals/2.3.3/files/gd-c.html#gdImageCopyResized)
+
+[`gdImageCopyResampled`](https://libgd.github.io/manuals/2.3.3/files/gd-c.html#gdImageCopyResampled)
+
+### Polygons
+
+[`gdImagePolygon`](https://libgd.github.io/manuals/2.3.3/files/gd-c.html#gdImagePolygon)
+
+[`gdImageOpenPolygon`](https://libgd.github.io/manuals/2.3.3/files/gd-c.html#gdImageOpenPolygon)
+
+[`gdImageFilledPolygon`](https://libgd.github.io/manuals/2.3.3/files/gd-c.html#gdImageFilledPolygon)
+
+### Other
+
+[`gdImageSetStyle`](https://libgd.github.io/manuals/2.3.3/files/gd-c.html#gdImageSetStyle)
+
+[`gdImageSetThickness`](https://libgd.github.io/manuals/2.3.3/files/gd-c.html#gdImageSetThickness)
+
+[`gdImageSetAntiAliased`](https://libgd.github.io/manuals/2.3.3/files/gd-c.html#gdImageSetAntiAliased)
+
+`gd.h`
+------
+
+### Colour Decomposition
+
+[`gdTrueColorGetAlpha`](https://libgd.github.io/manuals/2.3.3/files/gd-h.html#gdTrueColorGetAlpha)
+
+[`gdTrueColorGetRed`](https://libgd.github.io/manuals/2.3.3/files/gd-h.html#gdTrueColorGetRed)
+
+[`gdTrueColorGetGreen`](https://libgd.github.io/manuals/2.3.3/files/gd-h.html#gdTrueColorGetGreen)
+
+[`gdTrueColorGetBlue`](https://libgd.github.io/manuals/2.3.3/files/gd-h.html#gdTrueColorGetBlue)
+
+### Color Composition
+
+[`gdTrueColorAlpha`](https://libgd.github.io/manuals/2.3.3/files/gd-h.html#gdTrueColorAlpha)
+
+### Accessor Macros
+
+[`gdImageSX`](https://libgd.github.io/manuals/2.3.3/files/gd-h.html#gdImageSX)
+
+[`gdImageSY`](https://libgd.github.io/manuals/2.3.3/files/gd-h.html#gdImageSY)
+
+[`gdImageColorsTotal`](https://libgd.github.io/manuals/2.3.3/files/gd-h.html#gdImageColorsTotal)
+
+[`gdImageRed`](https://libgd.github.io/manuals/2.3.3/files/gd-h.html#gdImageRed
+
+L<C<gdImageGreen)|https://libgd.github.io/manuals/2.3.3/files/gd-h.html#gdImageGreen>
+
+[`gdImageBlue`](https://libgd.github.io/manuals/2.3.3/files/gd-h.html#gdImageBlue)
+
+[`gdImageAlpha`](https://libgd.github.io/manuals/2.3.3/files/gd-h.html#gdImageAlpha)
+
+`gd_interpolation.c`
+--------------------
+
+[`gdImageScale`](https://libgd.github.io/manuals/2.3.3/files/gd_interpolation-c.html#gdImageScale)
+
+[`gdImageRotateInterpolated`](https://libgd.github.io/manuals/2.3.3/files/gd_interpolation-c.html#gdImageRotateInterpolated)
+
+[`gdImageSetInterpolationMethod`](https://libgd.github.io/manuals/2.3.3/files/gd_interpolation-c.html#gdImageSetInterpolationMethod)
+
+`gd_version.c`
+--------------
+
+[`gdMajorVersion`](https://libgd.github.io/manuals/2.3.3/files/gd_version-c.html#gdMajorVersion)
+
+[`gdMinorVersion`](https://libgd.github.io/manuals/2.3.3/files/gd_version-c.html#gdMinorVersion)
+
+[`gdReleaseVersion`](https://libgd.github.io/manuals/2.3.3/files/gd_version-c.html#gdReleaseVersion)
+
+[`gdExtraVersion`](https://libgd.github.io/manuals/2.3.3/files/gd_version-c.html#gdExtraVersion)
+
+[`gdVersionString`](https://libgd.github.io/manuals/2.3.3/files/gd_version-c.html#gdVersionString)
+
+gdFree
+------
+
+[`gdFree`](https://libgd.github.io/manuals/2.3.3/files/gdhelpers-c.html)
+
+Image Filters
+-------------
+
+[`gdImageScatter`](https://libgd.github.io/manuals/2.3.3/files/gd_filter-c.html#gdImageScatter)
+
+[`gdImagePixelate`](https://libgd.github.io/manuals/2.3.3/files/gd_filter-c.html#gdImagePixelate)
+
+[`gdImageNegate`](https://libgd.github.io/manuals/2.3.3/files/gd_filter-c.html#gdImageNegate)
+
+[`gdImageGrayScale`](https://libgd.github.io/manuals/2.3.3/files/gd_filter-c.html#gdImageGrayScale)
+
+[`gdImageBrightness`](https://libgd.github.io/manuals/2.3.3/files/gd_filter-c.html#gdImageBrightness)
+
+[`gdImageContrast`](https://libgd.github.io/manuals/2.3.3/files/gd_filter-c.html#gdImageContrast)
+
+[`gdImageColor`](https://libgd.github.io/manuals/2.3.3/files/gd_filter-c.html#gdImageColor)
+
+[`gdImageSelectiveBlur`](https://libgd.github.io/manuals/2.3.3/files/gd_filter-c.html#gdImageSelectiveBlur)
+
+[`gdImageEdgeDetectQuick`](https://libgd.github.io/manuals/2.3.3/files/gd_filter-c.html#gdImageEdgeDetectQuick)
+
+[`gdImageGaussianBlur`](https://libgd.github.io/manuals/2.3.3/files/gd_filter-c.html#gdImageGaussianBlur)
+
+[`gdImageEmboss`](https://libgd.github.io/manuals/2.3.3/files/gd_filter-c.html#gdImageEmboss)
+
+[`gdImageMeanRemoval`](https://libgd.github.io/manuals/2.3.3/files/gd_filter-c.html#gdImageMeanRemoval)
+
+[`gdImageSmooth`](https://libgd.github.io/manuals/2.3.3/files/gd_filter-c.html#gdImageSmooth)
+
+[`gdImageCopyGaussianBlurred`](https://libgd.github.io/manuals/2.3.3/files/gd_filter-c.html#gdImageCopyGaussianBlurred)
+
+Additional Functions
+--------------------
+
+`fopen` file management for graphic files
+
+`fclose` file management for graphic files
+
+`gdImageCreatePalette` is an alias of `gdImageCreate`.
+
 MEMORY MANAGEMENT
 =================
 
@@ -61,6 +268,20 @@ LEAVE gdImageDestroy($_) with $img2;
 my $img3 = gdImageCreateFromPng($fh3);
 LEAVE gdImageDestroy($_) with $img3;
 [...]
+```
+
+When using a function `gdImage`*XXX*`Ptr` to fill a blob with graphic data, the memory management function is `gdFree`. Usually, the pointer has a very short lifespan. Once the blob has been generated by `blob-from-pointer`, the pointer is useless and can be fred immediately. A typical chunk of code would be:
+
+```raku
+use GD::Raw;
+use NativeHelpers::Blob;
+
+[...]
+
+my int32 $size;
+my $ptr  = gdImagePngPtr($im, $size);
+my $blob = blob-from-pointer($ptr, elems => $size, type => Blob[int8]);
+gdFree($ptr);
 ```
 
 SEE ALSO
