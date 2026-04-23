@@ -169,4 +169,6 @@ skip-rest "too old libgd" if $major == 2 and $minor < 2;
 do_test();
 do_crosstest();
 
+# For Emacs users: place the cursor after the closing parens and type C-x C-e
+# (setq-local tab-width 4)
 # vim: expandtab shiftwidth=4

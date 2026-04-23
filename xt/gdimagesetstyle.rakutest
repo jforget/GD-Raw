@@ -1,0 +1,43 @@
+# -*- encoding: utf-8; indent-tabs-mode: nil -*-
+use Test;
+use GD::Raw;
+use NativeCall;
+
+use lib $*PROGRAM.parent;
+use gdtest;
+
+plan 1;
+
+my $width  = 120;
+my $height =  50;
+my $im     = gdImageCreate($width, $height);
+LEAVE gdImageDestroy($im) if $im;
+
+my $white = gdImageColorAllocate($im, 0xff, 0xff, 0xff);
+my $black = gdImageColorAllocate($im,   0,   0,   0);
+my $red   = gdImageColorAllocate($im, 255,   0,   0);
+my $blue  = gdImageColorAllocate($im,   0,   0, 255);
+
+my @style := CArray[int32].new;
+@style[0] = $red;
+@style[1] = $red;
+@style[2] = gdTransparent;
+@style[3] = gdTransparent;
+
+gdImageSetStyle($im, @style, 4);
+gdImageLine($im, 10, 10, 100, 10, gdStyled);
+
+for (0..5) -> $i {
+  @style[$i    ] = $blue;
+  @style[$i + 6] = gdTransparent;
+}
+gdImageSetStyle($im, @style, 12);
+gdImageLine($im, 10, 20, 100, 20, gdStyled);
+gdImageLine($im, 10, 30, 100, 40, gdStyled);
+
+ok gdAssertImageEqualsToFile
+  $*PROGRAM.sibling("ported-gdimagesetstyle/gdimagestyle0.png"),
+  $im
+;
+
+# vim: expandtab shiftwidth=4

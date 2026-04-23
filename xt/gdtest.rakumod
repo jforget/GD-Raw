@@ -211,4 +211,6 @@ sub gdTestImageCompareToImage($file, $line, $message,
 	1
 }
 
+# For Emacs users: place the cursor after the closing parens and type C-x C-e
+# (setq-local tab-width 4)
 # vim: expandtab shiftwidth=4
