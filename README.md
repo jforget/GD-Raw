@@ -100,6 +100,10 @@ Image Formats
 
 [`gdImageLine`](https://libgd.github.io/manuals/2.3.3/files/gd-c.html#gdImageLine)
 
+[`gdImageString`](https://libgd.github.io/manuals/2.3.3/files/gd-c.html#gdImageString)
+
+[`gdImageStringUp`](https://libgd.github.io/manuals/2.3.3/files/gd-c.html#gdImageStringUp)
+
 [`gdImageArc`](https://libgd.github.io/manuals/2.3.3/files/gd-c.html#gdImageArc)
 
 [`gdImageEllipse`](https://libgd.github.io/manuals/2.3.3/files/gd-c.html#gdImageEllipse)
@@ -157,9 +161,9 @@ Image Formats
 
 [`gdImageColorsTotal`](https://libgd.github.io/manuals/2.3.3/files/gd-h.html#gdImageColorsTotal)
 
-[`gdImageRed`](https://libgd.github.io/manuals/2.3.3/files/gd-h.html#gdImageRed
+[`gdImageRed`](https://libgd.github.io/manuals/2.3.3/files/gd-h.html#gdImageRed)
 
-L<C<gdImageGreen)|https://libgd.github.io/manuals/2.3.3/files/gd-h.html#gdImageGreen>
+[`gdImageGreen`](https://libgd.github.io/manuals/2.3.3/files/gd-h.html#gdImageGreen)
 
 [`gdImageBlue`](https://libgd.github.io/manuals/2.3.3/files/gd-h.html#gdImageBlue)
 
@@ -223,6 +227,19 @@ Image Filters
 
 [`gdImageCopyGaussianBlurred`](https://libgd.github.io/manuals/2.3.3/files/gd_filter-c.html#gdImageCopyGaussianBlurred)
 
+Built-in Fonts
+--------------
+
+[`gdGiantFont`](https://libgd.github.io/manuals/2.3.3/files/gdfontg-c.html)
+
+[`gdLargeFont`](https://libgd.github.io/manuals/2.3.3/files/gdfontl-c.html)
+
+[`gdMediumBoldFont`](https://libgd.github.io/manuals/2.3.3/files/gdfontmb-c.html)
+
+[`gdSmallFont`](https://libgd.github.io/manuals/2.3.3/files/gdfonts-c.html)
+
+[`gdTinyFont`](https://libgd.github.io/manuals/2.3.3/files/gdfontt-c.html)
+
 Additional Functions
 --------------------
 
@@ -232,8 +249,11 @@ Additional Functions
 
 `gdImageCreatePalette` is an alias of `gdImageCreate`.
 
-MEMORY MANAGEMENT
-=================
+VARIOUS ISSUES
+==============
+
+Memory Management
+-----------------
 
 When creating an in-memory image, some memory is allocated in GD. This memory is not automatically deallocated when the variable which refers to the image goes out of scope. To counter this possible memory leak, the simplest way is to use the `LEAVE` phaser and call function `gdImageDestroy` like this
 
@@ -283,6 +303,14 @@ my $ptr  = gdImagePngPtr($im, $size);
 my $blob = blob-from-pointer($ptr, elems => $size, type => Blob[int8]);
 gdFree($ptr);
 ```
+
+String Fonts
+------------
+
+When using  functions `gdImageString`  and `gdImageStringUp`,  you can
+only   use   the    built-in   fonts   `gdGiantFont`,   `gdLargeFont`,
+`gdMediumBoldFont`,  `gdSmallFont` and  `gdTinyFont`. You  cannot load
+GD-formatted bitmap fonts.
 
 SEE ALSO
 ========

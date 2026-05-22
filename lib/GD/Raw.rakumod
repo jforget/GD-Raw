@@ -913,7 +913,7 @@ gdFree($ptr);
 =head2 String Fonts
 
 When using functions C<gdImageString>  and C<gdImageStringUp>, you can
-only   use   the   built-in  fonts   C<gdGiantFont>n   C<gdLargeFont>,
+only   use   the   built-in  fonts   C<gdGiantFont>,   C<gdLargeFont>,
 C<gdMediumBoldFont>, C<gdSmallFont> and C<gdTinyFont>. You cannot load
 GD-formatted bitmap fonts.
 
