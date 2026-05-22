@@ -332,6 +332,34 @@ sub gdImageLine (gdImagePtr $im, int32 $x1, int32 $y1, int32 $x2, int32 $y2, int
     #returns void
     is native(LIB) is export {*}
 
+sub gdImageString (gdImagePtr $im, OpaquePointer $font, int32 $x, int32 $y, Str, int32 $color)
+    #returns void
+    is native(LIB) is export {*}
+
+sub gdImageStringUp (gdImagePtr $im, OpaquePointer $font, int32 $x, int32 $y, Str, int32 $color)
+    #returns void
+    is native(LIB) is export {*}
+
+sub gdGiantFont ()
+    returns OpaquePointer
+    is native(LIB) is export is symbol('gdFontGetGiant') {*}
+
+sub gdLargeFont ()
+    returns OpaquePointer
+    is native(LIB) is export is symbol('gdFontGetLarge') {*}
+
+sub gdMediumBoldFont ()
+    returns OpaquePointer
+    is native(LIB) is export is symbol('gdFontGetMediumBold') {*}
+
+sub gdSmallFont ()
+    returns OpaquePointer
+    is native(LIB) is export is symbol('gdFontGetSmall') {*}
+
+sub gdTinyFont ()
+    returns OpaquePointer
+    is native(LIB) is export is symbol('gdFontGetTiny') {*}
+
 
 sub gdTrueColorAlpha($r, $g, $b, $a) is export {
     ((($a) +< 24) +
@@ -666,6 +694,10 @@ L<C<gdImageGetTrueColorPixel>|https://libgd.github.io/manuals/2.3.3/files/gd-c.h
 
 L<C<gdImageLine>|https://libgd.github.io/manuals/2.3.3/files/gd-c.html#gdImageLine>
 
+L<C<gdImageString>|https://libgd.github.io/manuals/2.3.3/files/gd-c.html#gdImageString>
+
+L<C<gdImageStringUp>|https://libgd.github.io/manuals/2.3.3/files/gd-c.html#gdImageStringUp>
+
 L<C<gdImageArc>|https://libgd.github.io/manuals/2.3.3/files/gd-c.html#gdImageArc>
 
 L<C<gdImageEllipse>|https://libgd.github.io/manuals/2.3.3/files/gd-c.html#gdImageEllipse>
@@ -784,6 +816,18 @@ L<C<gdImageSmooth>|https://libgd.github.io/manuals/2.3.3/files/gd_filter-c.html#
 
 L<C<gdImageCopyGaussianBlurred>|https://libgd.github.io/manuals/2.3.3/files/gd_filter-c.html#gdImageCopyGaussianBlurred>
 
+=head2 Built-in Fonts
+
+L<C<gdGiantFont>|https://libgd.github.io/manuals/2.3.3/files/gdfontg-c.html>
+
+L<C<gdLargeFont>|https://libgd.github.io/manuals/2.3.3/files/gdfontl-c.html>
+
+L<C<gdMediumBoldFont>|https://libgd.github.io/manuals/2.3.3/files/gdfontmb-c.html>
+
+L<C<gdSmallFont>|https://libgd.github.io/manuals/2.3.3/files/gdfonts-c.html>
+
+L<C<gdTinyFont>|https://libgd.github.io/manuals/2.3.3/files/gdfontt-c.html>
+
 =head2 Additional Functions
 
 C<fopen> file management for graphic files
@@ -792,7 +836,9 @@ C<fclose> file management for graphic files
 
 C<gdImageCreatePalette> is an alias of C<gdImageCreate>.
 
-=head1 MEMORY MANAGEMENT
+=head1 VARIOUS ISSUES
+
+=head2 Memory Management
 
 When creating an in-memory image, some memory is allocated in GD. This
 memory is not automatically deallocated when the variable which refers
@@ -863,6 +909,13 @@ my $blob = blob-from-pointer($ptr, elems => $size, type => Blob[int8]);
 gdFree($ptr);
 
 =end code
+
+=head2 String Fonts
+
+When using functions C<gdImageString>  and C<gdImageStringUp>, you can
+only   use   the   built-in  fonts   C<gdGiantFont>n   C<gdLargeFont>,
+C<gdMediumBoldFont>, C<gdSmallFont> and C<gdTinyFont>. You cannot load
+GD-formatted bitmap fonts.
 
 =head1 SEE ALSO
 
