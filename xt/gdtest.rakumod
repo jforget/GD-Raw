@@ -134,7 +134,7 @@ sub gdTestImageDiff(gdImagePtr $buf_a, gdImagePtr $buf_b,
 
 				$result_ret.pixels_changed++;
 				if $buf_diff {
-                    gdImageSetPixel($buf_diff, $x,$y, gdTrueColorAlpha($diff_r, $diff_g, $diff_b, $diff_a));
+                    gdImageSetPixel($buf_diff, $x,$y, gdTrueColorAlpha($diff_r.int, $diff_g.int, $diff_b.int, $diff_a.int));
                 }
 			} else {
 				if $buf_diff {
@@ -186,7 +186,7 @@ sub gdTestImageCompareToImage($file, $line, $message,
 		my int ($len, $p);
 
         warn "Total pixels changed: " ~ $result.pixels_changed
-            ~ " with a maximum channel difference of " ~ $result.max_diff;
+            ~ " with a maximum channel difference of " ~ gdMaxPixelDiff($expected, $actual);
 
         my $actual-path = tmp-file();
         my $diff-path = tmp-file();
