@@ -18,7 +18,9 @@ my $black     = gdImageColorAllocate($im,   0,   0,   0);
 my $font-name = "ported-gdimagestringft/testing-gd-raw.ttf";
 my $font-size = 30e0; # float, not int
 my $angle     =  0e0; # ditto
+
 my @bounding-rect := CArray[int32].new;
+@bounding-rect[7] = 0; # to allocate room for 8 integers
 
 gdImageFilledRectangle($im, 0, 0, $width - 1, $height - 1, $white);
 gdImageStringFT($im, @bounding-rect, $black, $font-name, $font-size, $angle, 10, 40, "Hello world");
