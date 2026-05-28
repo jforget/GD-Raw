@@ -4,6 +4,7 @@ Revision history for GD::Raw
 
 0.7  2026-xx-xx
     - Add functions `gdImageString` and `gdImageStringUp` to draw strings with fixed-length fonts
+    - Add function `gdImageStringFT` to draw Unicode strings with Free Type fonts.
 
 0.6  2026-04-23T21:06:07+02:00
     - Add function `gdImagePngPtr` to load PNG data into a blob instead of into a file

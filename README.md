@@ -67,6 +67,11 @@ Image Formats
 
 [`gdImageWepbPtrEx`](https://libgd.github.io/manuals/2.3.3/files/gd_webp-c.html#gdImageWebpPtr)
 
+Free Type Font Rendering
+------------------------
+
+[`gdImageStringFT`](https://libgd.github.io/manuals/2.3.3/files/gdft-c.html#gdImageStringFT)
+
 `gd.c`
 ------
 

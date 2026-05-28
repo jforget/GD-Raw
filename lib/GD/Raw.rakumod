@@ -340,6 +340,10 @@ sub gdImageStringUp (gdImagePtr $im, OpaquePointer $font, int32 $x, int32 $y, St
     #returns void
     is native(LIB) is export {*}
 
+sub gdImageStringFT (gdImagePtr $im, CArray[int32] is rw, int32 $color, Str $fontname, num64 $fontsize, num64 $angle, int32 $x, int32 $y, Str)
+    #returns void
+    is native(LIB) is export {*}
+
 sub gdGiantFont ()
     returns OpaquePointer
     is native(LIB) is export is symbol('gdFontGetGiant') {*}
@@ -662,6 +666,10 @@ L<C<gdImageWebpPtr>|https://libgd.github.io/manuals/2.3.3/files/gd_webp-c.html#g
 
 L<C<gdImageWepbPtrEx>|https://libgd.github.io/manuals/2.3.3/files/gd_webp-c.html#gdImageWebpPtr>
 
+=head2 Free Type Font Rendering
+
+L<C<gdImageStringFT>|https://libgd.github.io/manuals/2.3.3/files/gdft-c.html#gdImageStringFT>
+
 =head2 C<gd.c>
 
 =head3 Creation and Destruction
@@ -914,8 +922,8 @@ gdFree($ptr);
 
 When using functions C<gdImageString>  and C<gdImageStringUp>, you can
 only   use   the   built-in  fonts   C<gdGiantFont>,   C<gdLargeFont>,
-C<gdMediumBoldFont>, C<gdSmallFont> and C<gdTinyFont>. You cannot load
-GD-formatted bitmap fonts.
+C<gdMediumBoldFont>, C<gdSmallFont> and C<gdTinyFont>. For the moment,
+you cannot load GD-formatted bitmap fonts.
 
 =head1 SEE ALSO
 
