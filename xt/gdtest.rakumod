@@ -147,7 +147,9 @@ sub gdTestImageDiff(gdImagePtr $buf_a, gdImagePtr $buf_b,
 
 sub tmp-file() {
     my $path = $*TMPDIR;
-    $path = $path.child( ('a'..'z', 'A'..'Z').pick(10).join ~ ".png" );
+    my @chars = 'a' .. 'z';
+    @chars.push( | ('A' .. 'Z'));
+    $path = $path.child( @chars.pick(10).join ~ ".png" );
     $path.Str
 }
 
