@@ -341,7 +341,7 @@ sub gdImageStringUp (gdImagePtr $im, OpaquePointer $font, int32 $x, int32 $y, St
     is native(LIB) is export {*}
 
 sub gdImageStringFT (gdImagePtr $im, CArray[int32] is rw, int32 $color, Str $fontname, num64 $fontsize, num64 $angle, int32 $x, int32 $y, Str)
-    #returns void
+    returns Str
     is native(LIB) is export {*}
 
 sub gdGiantFont ()
