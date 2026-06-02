@@ -70,7 +70,13 @@ Image Formats
 Free Type Font Rendering
 ------------------------
 
+[`gdFontCacheShutdown`](https://libgd.github.io/manuals/2.3.3/files/gdft-c.html#gdFontCacheShutdown)
+
 [`gdImageStringFT`](https://libgd.github.io/manuals/2.3.3/files/gdft-c.html#gdImageStringFT)
+
+[`gdFontCacheSetup`](https://libgd.github.io/manuals/2.3.3/files/gdft-c.html#gdFontCacheSetup)
+
+[`gdFTUseFontConfig`](https://libgd.github.io/manuals/2.3.3/files/gdft-c.html#gdFTUseFontConfig)
 
 `gd.c`
 ------

@@ -340,10 +340,6 @@ sub gdImageStringUp (gdImagePtr $im, OpaquePointer $font, int32 $x, int32 $y, St
     #returns void
     is native(LIB) is export {*}
 
-sub gdImageStringFT (gdImagePtr $im, CArray[int32] is rw, int32 $color, Str $fontname, num64 $fontsize, num64 $angle, int32 $x, int32 $y, Str)
-    returns Str
-    is native(LIB) is export {*}
-
 sub gdGiantFont ()
     returns OpaquePointer
     is native(LIB) is export is symbol('gdFontGetGiant') {*}
@@ -364,6 +360,22 @@ sub gdTinyFont ()
     returns OpaquePointer
     is native(LIB) is export is symbol('gdFontGetTiny') {*}
 
+# ported from C source "gdft.c"
+sub gdImageStringFT (gdImagePtr $im, CArray[int32] is rw, int32 $color, Str $fontname, num64 $fontsize, num64 $angle, int32 $x, int32 $y, Str)
+    returns Str
+    is native(LIB) is export {*}
+
+sub gdFontCacheShutdown()
+    #returns void
+    is native(LIB) is export is symbol('gdFontCacheShutdown') {*}
+
+sub gdFontCacheSetup()
+    returns int32
+    is native(LIB) is export is symbol('gdFontCacheSetup') {*}
+
+sub gdFTUseFontConfig(int32 $flag)
+    returns int32
+    is native(LIB) is export is symbol('gdFTUseFontConfig') {*}
 
 sub gdTrueColorAlpha($r, $g, $b, $a) is export {
     ((($a) +< 24) +
@@ -668,7 +680,13 @@ L<C<gdImageWepbPtrEx>|https://libgd.github.io/manuals/2.3.3/files/gd_webp-c.html
 
 =head2 Free Type Font Rendering
 
+L<C<gdFontCacheShutdown>|https://libgd.github.io/manuals/2.3.3/files/gdft-c.html#gdFontCacheShutdown>
+
 L<C<gdImageStringFT>|https://libgd.github.io/manuals/2.3.3/files/gdft-c.html#gdImageStringFT>
+
+L<C<gdFontCacheSetup>|https://libgd.github.io/manuals/2.3.3/files/gdft-c.html#gdFontCacheSetup>
+
+L<C<gdFTUseFontConfig>|https://libgd.github.io/manuals/2.3.3/files/gdft-c.html#gdFTUseFontConfig>
 
 =head2 C<gd.c>
 

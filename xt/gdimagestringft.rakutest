@@ -22,6 +22,11 @@ my $angle     =  0e0; # ditto
 my @bounding-rect := CArray[int32].new;
 @bounding-rect[7] = 0; # to allocate room for 8 integers
 
+my $rc = gdFontCacheSetup();
+LEAVE gdFontCacheShutdown();
+# zero : do not use generic font names
+my $config = gdFTUseFontConfig(0);
+
 # negative color to disable anti-aliasing
 my $err = gdImageStringFT($im, @bounding-rect, - $black, $font-name, $font-size, $angle, 10, 40, "Hello world");
 die $err if $err;
