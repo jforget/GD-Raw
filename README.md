@@ -330,6 +330,8 @@ Raku Module `GD`: [https://github.com/raku-community-modules/GD](https://github.
 
 C library: [https://libgd.github.io/](https://libgd.github.io/)
 
+A few examples and a few development notes: [https://github.com/jforget/raku-sandbox-GD/](https://github.com/jforget/raku-sandbox-GD/)
+
 AUTHORS
 =======
 

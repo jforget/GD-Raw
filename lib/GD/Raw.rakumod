@@ -949,6 +949,8 @@ Raku Module C<GD>: L<https://github.com/raku-community-modules/GD>
 
 C library: L<https://libgd.github.io/>
 
+A few examples and a few development notes: L<https://github.com/jforget/raku-sandbox-GD/>
+
 =head1 AUTHORS
 
 =item Dagur Valberg Johannsson
